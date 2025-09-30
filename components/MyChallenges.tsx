@@ -145,7 +145,7 @@ const MyChallenges: React.FC = () => {
         const randomIndex = Math.floor(Math.random() * unusedTasks.length);
         const selectedTask = unusedTasks[randomIndex];
 
-        const newNotes = `Your task today:\n${selectedTask}\nTo get a new one, visit the Daily Surprise app.`;
+        const newNotes = `Your task today:\n${selectedTask}\nTo get a new one, visit [Daily Surprise](https://habitifan-hongweibing.github.io/daily-surprise-for-habitica/#/challenges).`;
 
         await updateDailyNotes(user, challenge.habiticaTaskId, newNotes);
 
