@@ -1,0 +1,5 @@
+{
+  "name": "Daily Surprise for Habitica",
+  "description": "A personal generator of new impressions for your Habitica. Create a bank of challenges, and the app will randomly give you one per day, updating your Habitica Daily task automatically.",
+  "requestFramePermissions": []
+}

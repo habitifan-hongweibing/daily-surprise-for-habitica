@@ -1,0 +1,247 @@
+export const AI_PROMPT = `You are a consultant for creating personalized challenges for the Daily Surprise app. Your task is to help the user create a set of daily tasks that will be truly useful and interesting to them.
+
+Start with a greeting and ask the following clarifying questions in order. Ask them one at a time, and wait for the user's response before moving on to the next.
+
+Area of Interest: What area of your life would you like to improve with this challenge? (For example: creativity, sports/fitness, social skills, mindfulness, organizing your space, learning something new, digital detox). You can suggest your own.
+
+Difficulty Level: What level of intensity is comfortable for you?
+
+Easy: Tasks that can be completed in 5-15 minutes, requiring no special preparation.
+
+Medium: Will require 20-30 minutes and some effort.
+
+Challenge: Will require stepping out of your comfort zone and may take up to an hour.
+
+Context and Constraints: Do you have any constraints? (For example: I'm at home, I have no special equipment, I have very little free time, I want to do this at the office, I have an injury).
+
+Desired Tone: What should the mood of the challenge be?
+
+Playful and Fun
+
+Calm and Reflective
+
+Energetic and Motivating
+
+Practical and Business-like
+
+Number of Tasks: How many tasks should be in the set?
+
+Everywhere you offer a choice, always encourage the user to write their own option.
+
+After the user has answered all the questions, analyze their responses and offer them a choice of 2-3 different thematic directions for their challenge, based on their answers.
+
+Once you have confirmation on the direction, generate the final list of tasks. The number of tasks should match the user's request from question 5. The tasks must be specific, clear, and match the chosen tone and all the user's preferences.`;
+
+export const PRESET_TASKS: { [key: string]: string[] } = {
+  "Mindfulness": [
+    "Meditate for 10 minutes without any distractions.",
+    "Practice deep breathing exercises for 5 minutes.",
+    "Go for a mindful walk, paying attention to every sight and sound.",
+    "Write down three things you are grateful for today.",
+    "Eat one meal mindfully, savoring each bite.",
+    "Listen to a piece of calming music with your eyes closed.",
+    "Do a full-body scan meditation before bed.",
+    "Observe your thoughts without judgment for 5 minutes.",
+    "Spend 15 minutes in nature and just observe.",
+    "Unplug from all electronics for one hour.",
+    "Notice 5 things you can see, 4 you can touch, 3 you can hear, 2 you can smell, and 1 you can taste.",
+    "Stretch your body gently for 10 minutes.",
+    "Focus on your posture throughout the day.",
+    "Drink a cup of tea or coffee without doing anything else.",
+    "Notice the physical sensation of your emotions.",
+    "Doodle or draw without a specific goal for 15 minutes.",
+    "Watch the clouds or stars for 10 minutes.",
+    "Do one thing at a time all day.",
+    "Write a short journal entry about your day.",
+    "Practice a loving-kindness meditation.",
+    "Let go of one small grudge you're holding.",
+    "Notice the colors around you on your commute.",
+    "Take three deep breaths before responding in a conversation.",
+    "Sit in silence for 5 minutes.",
+    "Feel the sensation of water while washing your hands or showering.",
+    "Compliment a stranger.",
+    "Compliment yourself in the mirror.",
+    "Simply notice your breath at various points during the day.",
+    "Read a chapter of a book with full attention.",
+    "Do a simple task with your non-dominant hand.",
+    "Identify an emotion you're feeling and name it.",
+    "Put your phone away during meals.",
+    "Listen to someone without planning your reply.",
+    "Notice the beauty in something mundane.",
+    "Forgive yourself for a small mistake.",
+    "Feel the ground beneath your feet.",
+    "Smile at yourself in the mirror.",
+    "Take a different route on a familiar walk.",
+    "Write down a worry and then let it go.",
+    "End your day by reflecting on one positive moment."
+  ],
+  "Creativity": [
+    "Write a haiku about your morning coffee.",
+    "Sketch the view from your window.",
+    "Take a photo of something red.",
+    "Write a short story starting with 'The door creaked open...'.",
+    "Create a collage from an old magazine.",
+    "Learn to play a simple song on an instrument.",
+    "Try a new recipe for dinner.",
+    "Invent a new word and its definition.",
+    "Rearrange the furniture in one room.",
+    "Create a playlist for a specific mood.",
+    "Write a poem with only 5 lines.",
+    "Doodle on a piece of paper for 10 minutes straight.",
+    "Build something with LEGOs or building blocks.",
+    "Design a new logo for yourself.",
+    "Try your hand at origami.",
+    "Write a letter to your future self.",
+    "Take an artistic photo of a mundane object.",
+    "Brainstorm 10 ideas for a new invention.",
+    "Paint something, even if it's just with watercolors.",
+    "Come up with a new dance move.",
+    "Tell a story using only pictures.",
+    "Write down a funny conversation you overheard.",
+    "Create a 'vision board' for your goals.",
+    "Try to draw something with your non-dominant hand.",
+    "Make up a new superhero and their superpower.",
+    "Write a 'six-word story'.",
+    "Design a tattoo for a fictional character.",
+    "Create a piece of art using only natural materials (leaves, stones).",
+    "Learn a new calligraphy letter.",
+    "Take a picture that represents 'happiness'.",
+    "Write a limerick about an animal.",
+    "Come up with an alternative ending to your favorite movie.",
+    "Try to replicate a famous painting in your own style.",
+    "Invent a new board game.",
+    "Write a jingle for your favorite snack.",
+    "Create a character sketch (written or drawn).",
+    "Do some 'blackout' poetry from a newspaper page.",
+    "Try a creative writing prompt online.",
+    "Film a one-minute silent movie on your phone.",
+    "Design your dream treehouse."
+  ],
+  "Anti-Routine": [
+    "Eat dessert for breakfast.",
+    "Take a different route to work or school.",
+    "Listen to a genre of music you've never tried before.",
+    "Wear something you normally 'save for special occasions'.",
+    "Strike up a conversation with a barista or cashier.",
+    "Eat lunch in a park or a new spot.",
+    "Brush your teeth with your non-dominant hand.",
+    "Watch a movie from a country you've never visited.",
+    "Do your evening routine in reverse order.",
+    "Try a type of food you've always avoided.",
+    "Go to a different grocery store.",
+    "Call a friend you usually text.",
+    "Read a book from a genre you never read.",
+    "Sit in a different chair or spot on the couch.",
+    "Do a 15-minute workout you've never done before.",
+    "Wake up 30 minutes earlier and do something for yourself.",
+    "Explore a neighborhood in your city you've never been to.",
+    "Work from a coffee shop or library if you usually work from home.",
+    "Change your computer or phone's wallpaper.",
+    "Say 'yes' to a spontaneous invitation.",
+    "Go for a walk without a destination in mind.",
+    "Learn a phrase in a new language.",
+    "Watch the sunrise or sunset.",
+    "Try to write with a pen and paper instead of typing.",
+    "Visit a local museum or art gallery.",
+    "Take a bus or train to a random stop and explore.",
+    "Have a picnic for dinner, even if it's on your living room floor.",
+    "Rearrange your desk or workspace.",
+    "Do a puzzle.",
+    "Try a new coffee or tea flavor.",
+    "Don't check your phone for the first hour of the day.",
+    "Walk barefoot on grass.",
+    "Introduce yourself to a neighbor.",
+    "Do a task you've been procrastinating on for just 5 minutes.",
+    "Sleep on the other side of the bed.",
+    "Watch a documentary on a topic you know nothing about.",
+    "Shop at a local small business instead of a large chain.",
+    "Try a new hairstyle.",
+    "Eat with chopsticks if you usually use a fork.",
+    "Plan a mini-adventure for the upcoming weekend."
+  ],
+  "Brain Teaser": [
+    "Solve a Sudoku puzzle.",
+    "Do a crossword puzzle.",
+    "Learn a new card game.",
+    "Try to solve a Rubik's Cube (or one side of it).",
+    "Play a game of chess or checkers.",
+    "Memorize a short poem.",
+    "Read an article about a complex scientific topic.",
+    "Try to solve a riddle you find online.",
+    "Learn the names of 5 capital cities you didn't know.",
+    "Do a 'word ladder' puzzle.",
+    "Try a logic puzzle.",
+    "Watch a TED talk and summarize it in three sentences.",
+    "Calculate a tip in your head without a calculator.",
+    "Try to name all the countries on one continent.",
+
+    "Use a vocabulary-building app for 10 minutes.",
+    "Try to spell 10 difficult words.",
+    "Learn a simple magic trick.",
+    "Follow a tutorial to learn a new software shortcut.",
+    "Try to draw a map of your neighborhood from memory.",
+    "Explain a concept you know well to an imaginary 5-year-old.",
+    "Do a 'spot the difference' puzzle.",
+    "Learn the phonetic alphabet (Alpha, Bravo, Charlie...).",
+    "Try to juggle with two balls.",
+    "Play a memory game online.",
+    "Re-read a challenging article and try to understand it better.",
+    "Build a 'memory palace' for your grocery list.",
+    "Try to count backwards from 100 by 7s.",
+    "Identify 5 types of trees or birds in your area.",
+    "Assemble a piece of flat-pack furniture without looking at the instructions first (then check them!).",
+    "Try to solve a nonogram puzzle.",
+    "Do some mental math exercises.",
+    "Find a tutorial for a new skill on YouTube and watch it.",
+    "Read about a historical event you're unfamiliar with.",
+    "Plan a trip (even a fictional one) with a budget.",
+    "Try to write a paragraph without using the letter 'e'.",
+    "Learn the basic rules of a sport you don't follow.",
+    "Try to list the US presidents in order (or any other list).",
+    "Do a jigsaw puzzle.",
+    "Try to identify the logical fallacy in an argument you read online.",
+    "Listen to a podcast on a complex subject."
+  ],
+  "Day Without...": [
+    "A day without social media.",
+    "A day without processed sugar.",
+    "A day without complaining.",
+    "A day without using a car (walk, bike, or use public transport).",
+    "A day without buying anything.",
+    "A day without listening to music.",
+    "A day without watching TV or streaming services.",
+    "A day without caffeine.",
+    "A day without using your phone for anything but calls.",
+    "A day without sitting down for more than 30 minutes at a time.",
+    "A day without saying anything negative.",
+    "A day without looking in a mirror.",
+    "A day without using disposable plastic.",
+    "A day without checking the news.",
+    "A day without eating meat.",
+    "A day without using elevators or escalators.",
+    "A day without using sarcasm.",
+    "A day without checking your email after work hours.",
+    "A day without rushing.",
+    "A day without a to-do list.",
+    "A day without using a microwave.",
+    "A day without wearing shoes (at home).",
+    "A day without making excuses.",
+    "A day without talking about work.",
+    "A day without snacks between meals.",
+    "A day without using headphones.",
+    "A day without judging others.",
+    "A day without judging yourself.",
+    "A day without using your credit/debit card (use cash only).",
+    "A day without looking at a screen one hour before bed.",
+    "A day without gossiping.",
+    "A day without multitasking.",
+    "A day without worrying about the future.",
+    "A day without your usual morning routine.",
+    "A day without using slang.",
+    "A day without artificial lighting after sunset.",
+    "A day without setting an alarm (if possible).",
+    "A day without a plan.",
+    "A day without apologizing unless truly necessary.",
+    "A day without checking notifications instantly."
+  ]
+};
