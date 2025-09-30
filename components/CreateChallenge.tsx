@@ -105,7 +105,7 @@ const CreateChallenge: React.FC = () => {
 
         const habiticaTask: HabiticaDaily = {
             text: challengeName,
-            notes: `Your task will appear here! To update, visit the Daily Surprise app.`,
+            notes: `Your task will appear here! To update, visit [Daily Surprise](https://habitifan-hongweibing.github.io/daily-surprise-for-habitica/#/challenges).`,
             type: 'daily',
             frequency: scheduleType,
             startDate: new Date(startDate),
